@@ -2,4 +2,4 @@
 CoderByte challenge implementations
 
 ## Java Age Counting
-[Requirements](/age_counting/JavaAgeCounting.md)
+[Requirements](src/main/java/com/pub/age_counting/JavaAgeCounting.md)
