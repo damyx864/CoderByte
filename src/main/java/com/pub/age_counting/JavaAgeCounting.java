@@ -12,11 +12,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.regex.Pattern;
 
 public class JavaAgeCounting {
 
-    public static void main(String[] args) {
+    static void main(String[] args) {
         System.setProperty("http.agent", "Chrome");
         try {
             URI uri = new URI("https://coderbyte.com/api/challenges/json/age-counting");
@@ -77,8 +78,9 @@ public class JavaAgeCounting {
     }
 
     private static int countItemsOverThreshold(List<Integer> itemList, int threshold, boolean inclusive) {
+        Function<Integer, Integer> computeThreshold = n -> n >= threshold && inclusive || n > threshold ? 1 : 0;
         return itemList.parallelStream()
-                .map(n -> n >= threshold && inclusive || n > threshold ? 1 : 0)
+                .map(computeThreshold)
                 .reduce(0, Integer::sum);
     }
 }

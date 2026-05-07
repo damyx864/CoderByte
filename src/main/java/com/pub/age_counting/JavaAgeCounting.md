@@ -11,3 +11,26 @@ Your goal is to count how many items exist that have an age equal to or greater 
 
 ### Output
 ```2```
+
+### Given
+```java
+import java.util.*;
+import java.io.*;
+import java.net.*;
+import java.util.regex.*;
+
+class Main {
+    public static void main(String[] args) {
+        System.setProperty("http.agent", "Chrome");
+        try {
+            URI uri = new URI("https://coderbyte.com/api/challenges/json/age-counting");
+            URL url = uri.toURL();
+            // Perform connection
+            URLConnection connection = url.openConnection();
+            // Implementation here
+        } catch (MalformedURLException | URISyntaxException malEx) {
+            System.out.println(malEx.getMessage());
+        }
+    }
+}
+```
